@@ -1,0 +1,17 @@
+# PyCharm project files
+.idea/
+
+# Python virtual environment
+venv/
+.venv/
+env/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Robot Framework output files
+output.xml
+log.html
+report.html
+.robot.py
