@@ -1,6 +1,10 @@
 *** Settings ***
 Documentation    To Validate the login form
 Library    SeleniumLibrary
+Test Teardown     Close Browser
+
+*** Variables ***
+${Error_Message_Login}       css:.alert-danger
 
 *** Test Cases ***
 Validate UnSucessful Login
@@ -20,11 +24,11 @@ Fill the login Form
 
 wait until it checks and display error message
 
-    Wait Until Element Is Visible    css:.alert-danger
+    Wait Until Element Is Visible    ${Error_Message_Login} 
 
 Verfiy Error Message Is Correct
-   ${result}=     Get Text                               css:.alert-danger
-   Should Be Equal As Strings        ${result}         Incorrect username/password.
+   ${result}=     Get Text                           ${Error_Message_Login}
+   Should Be Equal As Strings                        ${result}         Incorrect username/password.
     
     
       
